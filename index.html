@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Una historia que vale la pena</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <div id="intro" aria-label="Introducción">
+    <div class="beam"></div>
+    <div class="logo"><b>N</b>ETFLIX</div>
+    <div class="presenta">P R E S E N T A</div>
+    <button class="skip" onclick="skipIntro()">Saltar intro ›</button>
+  </div>
+
+  <header>
+    <button class="brand nav-button" onclick="showPage('inicio')" aria-label="Ir a Inicio">NETFLIX</button>
+    <nav>
+      <button class="nav-link active" data-page="inicio" onclick="showPage('inicio')">Inicio</button>
+      <button class="nav-link" data-page="series" onclick="showPage('series')">Series</button>
+      <button class="nav-link" data-page="historia" onclick="showPage('historia')">Mi historia</button>
+    </nav>
+  </header>
+
+  <main>
+    <div id="inicio" class="page active-page">
+      <section class="hero">
+        <div class="content">
+          <div class="tag">◆ UNA HISTORIA ORIGINAL</div>
+          <h1>Me Gustas<br>y me vuelves Loco</h1>
+          <p>Hay personas que llegan sin avisar y otras que regresan por un motivo y terminan convirtiéndose en una parte inolvidable de nuestra historia. Esta es la nuestra: momentos, recuerdos y pequeñas cosas que significan mucho.</p>
+          <div class="hero-actions">
+            <button onclick="document.querySelector('#capitulos').scrollIntoView({behavior:'smooth'})">▶ Reproducir historia</button>
+            <button class="secondary" onclick="document.querySelector('#especial').scrollIntoView({behavior:'smooth'})">ⓘ Más información</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="capitulos">
+        <div class="episodes-heading">
+          <h2>Episodios</h2>
+          <select class="season-select" aria-label="Seleccionar temporada" onchange="handleSeasonChange(this.value)">
+            <option value="1">Temporada 1</option>
+            <option value="2">Temporada 2 · Segunda temporada por confirmar</option>
+          </select>
+        </div>
+        <div class="episodes-list">
+          <article class="episode-row" onclick="showScene('Amor a Primera Vista','Un Chico empieza a revisar sus redes sociales y se encuentra con un Perfil algo peculiar, era una chica con una hermosa Sonrisa, unos labios rojos y un cosplay de un personaje que a él le encantaba. Quedó maravillado al ver esta foto.','Captura de pantalla 2026-11-25 180300.png')">
+            <span class="episode-number">1</span>
+            <img src="Captura de pantalla 2026-11-25 180300.png" alt="Amor a Primera Vista">
+            <div class="episode-info"><b>Amor a Primera Vista</b><p>El comienzo de una historia inesperada.</p></div>
+          </article>
+          <article class="episode-row" onclick="showScene('Salida al Zoológico','Una salida que nadie que lo cambio todo. En este capítulo, el chico y la chica proponen verse en persona y deciden ir al zoológico para su primera cita. El chico estaba demasiado nervioso al verla de frente que le temblaba la mano a tal grado que no podía tranquilizarse. Conforme pasó la salida, poco a poco fueron entrando en confianza y disfrutaron una salida agradable juntos.','mano-temblorosa.svg','Nunca olvidaré cómo temblaba de nervios')">
+            <span class="episode-number">2</span>
+            <img src="https://images.unsplash.com/photo-1546182990-dffeafbe841d?auto=format&fit=crop&w=700&q=80" alt="Salida al Zoológico">
+            <div class="episode-info"><b>Salida al Zoológico</b><p>La primera cita y los nervios al verse en persona.</p></div>
+          </article>
+          <article class="episode-row" onclick="showScene('A pesar de la distancia','Aunque los caminos nos encontraran lejos, había algo en nosotros que siempre sabía regresar. La distancia solo hizo que cada pensamiento fuera más bonito, cada mensaje fuera más esperado y cada encuentro valiera toda la magia del mundo.','../amor-del-viaje-por-carretera-24172519.webp','Cada kilómetro nos acerca a un nuevo recuerdo')">
+            <span class="episode-number">3</span>
+            <div class="distance-thumb">
+              <img src="../amor-del-viaje-por-carretera-24172519.webp" alt="A pesar de la distancia">
+              <span aria-hidden="true">♡</span>
+            </div>
+            <div class="episode-info"><b>A pesar de la distancia</b><p>Próximo episodio.</p></div>
+          </article>
+          <article class="episode-row" onclick="showScene('Regalo de cumpleaños','El chico creó un regalo de cumpleaños para brindarle un poco de alegría. Para recordar este detalle, puedes visitar la siguiente página: https://josearmandoamazon9512-star.github.io/Cumplea-osilse/')">
+            <span class="episode-number">4</span>
+            <img src="https://images.unsplash.com/photo-1464349153735-7db50ed83c84?auto=format&fit=crop&w=700&q=80" alt="Regalo de cumpleaños">
+            <div class="episode-info"><b>Regalo de cumpleaños</b><p>Un regalo creado para compartir alegría.</p></div>
+          </article>
+          <article class="episode-row" onclick="showScene('Sus flores favoritas','Los girasoles son sus flores favoritas: brillantes, alegres y siempre buscando la luz. Igual que ella, porque cuando sonríe hace que los momentos comunes florezcan y convierte cualquier día gris en algo hermoso.','https://images.unsplash.com/photo-1470509037663-253afd7f0f51?auto=format&fit=crop&w=1400&q=85','Como los girasoles, ella siempre busca la luz')">
+            <span class="episode-number">5</span>
+            <img src="https://images.unsplash.com/photo-1470509037663-253afd7f0f51?auto=format&fit=crop&w=700&q=80" alt="Sus flores favoritas">
+            <div class="episode-info"><b>Sus flores favoritas</b><p>Los girasoles favoritos de ella.</p></div>
+          </article>
+          <article class="episode-row" onclick="showScene('Su artista favorito','Uno de sus artistas favoritos es el grupo Reik, en el cual encontraron música en común. Ambos disfrutan escucharlos, y qué mejor manera de compartirlo que juntos, dejando que cada canción forme parte de esta historia.','','','https://youtu.be/UIyE-qvHil0?si=zsDaVMFWBTy8S6l8')">
+            <span class="episode-number">6</span>
+            <img src="https://i.ytimg.com/vi/UIyE-qvHil0/hqdefault.jpg" alt="Reik">
+            <div class="episode-info"><b>Su artista favorito</b><p>Reik y la música que compartieron.</p></div>
+          </article>
+          <article class="episode-row" onclick="showScene('Su equipo favorito','Su equipo le ha dado tantas alegrías y siempre le gusta apoyarlo. Aunque el chico vaya a otro equipo, celebra cuando el equipo de ella juega bien y disfruta compartir la emoción de cada partido.','','','', 'https://www.instagram.com/p/DayU2YGxnMi/')">
+            <span class="episode-number">7</span>
+            <div class="toluca-thumb">
+              <img src="../unnamed.png" alt="Su equipo favorito - Toluca">
+            </div>
+            <div class="episode-info"><b>Su equipo favorito</b><p>Toluca, orgullo y alegría compartida.</p></div>
+          </article>
+          <article class="episode-row" onclick="showScene('Una promesa sin fin','El chico promete cumplir que cuidará lo necesario. Todo dependerá de una comunicación asertiva entre ambos, lo que fortalecerá la confianza y hará que esta promesa sea más sencilla de sostener y vivir cada día.','https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1400&q=85','Una promesa hecha jamás deshecha')">
+            <span class="episode-number">8</span>
+            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=700&q=80" alt="Una promesa de pareja">
+            <div class="episode-info"><b>Una promesa sin fin</b><p>Una promesa hecha jamás deshecha.</p></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="feature" id="especial">
+        <div>
+          <h2>Hay momentos que merecen volver a reproducirse.</h2>
+          <p>Coloca un vídeo llamado <b>video.mp4</b> en esta misma carpeta.</p>
+          <button onclick="openVideo()">▶ Ver vídeo especial</button>
+        </div>
+        <img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=1000&q=80" alt="Momento especial">
+      </section>
+
+      <section>
+        <h2>Una última cosa…</h2>
+        <p>Esta historia no necesita ser perfecta para ser importante. Gracias por formar parte de estos recuerdos.</p>
+      </section>
+    </div>
+
+    <div id="series" class="page">
+      <section class="series-catalog">
+        <div class="catalog-heading">
+          <span class="tag">◆ COLECCIÓN PERSONAL</span>
+          <h1>Series</h1>
+        </div>
+        <div id="seriesGrid" class="series-grid"></div>
+      </section>
+
+      <section id="seriesDetail" class="series-detail"></section>
+    </div>
+
+    <div id="historia" class="page">
+      <section class="simple-page">
+        <span class="tag">◆ MI HISTORIA</span>
+        <h1>Nuestros recuerdos</h1>
+        <p>La página personal está lista para convertirse en tu próxima gran historia.</p>
+        <button onclick="showPage('inicio')">Volver al inicio</button>
+      </section>
+    </div>
+  </main>
+
+  <div id="modal" onclick="if(event.target===this)closeModal()">
+    <div class="panel">
+      <button class="close" onclick="closeModal()">Cerrar ×</button>
+      <h2 id="modalTitle"></h2>
+      <div id="modalImageFrame">
+        <img id="modalImage" alt="Imagen del capítulo">
+        <div id="modalImageCaption"></div>
+      </div>
+      <video id="player" controls></video>
+      <iframe id="modalYouTube" width="560" height="315" src="https://www.youtube.com/embed/UIyE-qvHil0?si=zsDaVMFWBTy8S6l8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <iframe id="modalInstagram" title="Publicación de Instagram" allowfullscreen></iframe>
+      <p id="modalText"></p>
+      <a id="youtubeFallback" class="description-link" target="_blank" rel="noopener noreferrer">Abrir vídeo directamente en YouTube</a>
+    </div>
+  </div>
+
+  <div id="seasonTwoScreen" class="season-two-screen" aria-label="Segunda temporada">
+    <div class="romance-sparkles">✦ &nbsp; ♥ &nbsp; ✧ &nbsp; ♡ &nbsp; ✦ &nbsp; ♥ &nbsp; ✧</div>
+    <div class="love-card">
+      <div class="love-kawaii" aria-hidden="true">ෆ</div>
+      <span class="love-eyebrow">TEMPORADA 2 · EL SIGUIENTE CAPÍTULO</span>
+      <h2>¿Quieres ser<br>mi novia?</h2>
+      <p>Hay una historia que quiero seguir escribiendo contigo...</p>
+      <div class="love-actions">
+        <button class="love-yes" onclick="acceptLove()">Sí, quiero ♡</button>
+        <button class="love-back" onclick="showSupportScreen()">No</button>
+        <button id="loveVolverButton" class="love-back" onclick="askBeforeReturning()">Volver</button>
+      </div>
+      <div id="loveAnswer" class="love-answer"></div>
+    </div>
+  </div>
+
+  <div id="returnConfirm" class="return-confirm" aria-label="Confirmar regreso">
+    <div class="confirm-card">
+      <div class="confirm-heart">♡</div>
+      <h2>¿Estás segura de que deseas volver?</h2>
+      <p>Aunque decidamos otro momento, lo bonito de esta historia seguirá presente.</p>
+      <div class="confirm-actions">
+        <button class="confirm-yes" onclick="confirmReturn()">Sí</button>
+        <button class="confirm-no" onclick="stayInSeasonTwo()">No</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="finalChoiceScreen" class="final-choice-screen" aria-label="Última pregunta">
+    <div class="romance-sparkles">✦ &nbsp; ♥ &nbsp; ✧ &nbsp; ♡ &nbsp; ✦ &nbsp; ♥ &nbsp; ✧</div>
+    <div class="love-card">
+      <div class="love-kawaii" aria-hidden="true">♡</div>
+      <span class="love-eyebrow">AÚN QUEDA UNA ÚLTIMA ESCENA</span>
+      <h2>¿Seguro que no<br>quieres intentarlo?</h2>
+      <p>Nuestra historia todavía puede convertirse en algo hermoso.</p>
+      <div class="love-actions">
+        <button class="love-back" onclick="showSupportScreen()">No</button>
+        <button class="love-yes" onclick="returnToConfirmFromFinal()">Volver</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="supportScreen" class="support-screen" aria-label="Mensaje de apoyo">
+    <div class="support-stars">✦ &nbsp; ♡ &nbsp; ✧ &nbsp; ✦ &nbsp; ♡ &nbsp; ✧</div>
+    <div class="support-card">
+      <div class="support-halo">🫶</div>
+      <span class="love-eyebrow">PARA TI, SIN IMPORTAR LA RESPUESTA</span>
+      <h2>Yo estaré aquí.</h2>
+      <p>Porque eres una persona valiosa y especial. Si necesitas ser escuchada, acompañada o simplemente tener a alguien cerca, puedes contar conmigo. Cuidaré de tu felicidad y estaré para ti cuando me necesites.</p>
+      <button class="support-close" onclick="closeSupportScreen()">Volver a nuestro capítulo ♡</button>
+    </div>
+  </div>
+
+  <script src="intro.js"></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+Para ver la página:
+1. Descarga index.html, estilos.css e intro.js.
+2. Súbelos a la misma carpeta de tu hosting o mantenlos juntos en tu computadora.
+3. Abre index.html en un navegador. Se necesita internet para las imágenes de ejemplo.
+4. Para agregar un vídeo, coloca video.mp4 en esa misma carpeta.
+Las imágenes son temporales. La intro es una animación original inspirada en la estética de Netflix, no material oficial.
